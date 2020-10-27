@@ -7,3 +7,14 @@ The REST API must support four endpoint:
   * **List IP addresses** - return all IP addresses in the system with their current status
   * **Acquire an IP** - set the status of a certain IP to “acquired”
   * **Release an IP** - set the status of a certain IP to “available”
+
+Endpoints:
+
+Create Addresses - GET http://localhost:8080/?cidr=<cidr>
+List Addresses - GET http://localhost:8080/all
+Acquire an IP - GET http://localhost:8080/acquire?ip=<ip address>
+Release an IP - GET http://localhost:8080/release?ip=<ip address>
+
+Assumptions:
+IP Addresses cannot be edited or interacted with unless added through the Create Addresses endpoint
+When a new range is added through create Addresses, previously added addresses within the range will not change from acquired to available.
